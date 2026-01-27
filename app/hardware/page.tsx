@@ -83,8 +83,8 @@ export default function HardwareComparison() {
                 <span className="text-white font-bold text-xl">◆</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">Compare Hardware</h1>
-                <p className="text-sm text-slate-500">Benchmarking 26+ AI accelerators</p>
+                <h1 className="text-xl font-bold text-slate-900">AI Compute Planner</h1>
+                <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
               </div>
             </Link>
             <Link

@@ -28,8 +28,8 @@ export default function Infrastructure() {
                 <span className="text-white font-bold text-xl">◆</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">Infra Directory</h1>
-                <p className="text-sm text-slate-500">Datacenter availability & cluster scalability</p>
+                <h1 className="text-xl font-bold text-slate-900">AI Compute Planner</h1>
+                <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
               </div>
             </Link>
             <Link

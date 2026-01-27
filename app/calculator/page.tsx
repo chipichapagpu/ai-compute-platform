@@ -40,6 +40,19 @@ const MODEL_PRESETS: Record<string, { params: number; layers: number; kvHeads: n
   'LLaMA 13B': { params: 13, layers: 40, kvHeads: 40, headDim: 128 },
   'LLaMA 70B': { params: 70, layers: 80, kvHeads: 8, headDim: 128 },
   'LLaMA 405B': { params: 405, layers: 126, kvHeads: 8, headDim: 128 },
+  'Qwen 2.5 7B': { params: 7.6, layers: 28, kvHeads: 4, headDim: 128 },
+  'Qwen 2.5 14B': { params: 14.7, layers: 48, kvHeads: 8, headDim: 128 },
+  'Qwen 2.5 32B': { params: 32.5, layers: 64, kvHeads: 8, headDim: 128 },
+  'Qwen 2.5 72B': { params: 72.7, layers: 80, kvHeads: 8, headDim: 128 },
+  'Gemma 2 9B': { params: 9.24, layers: 42, kvHeads: 8, headDim: 256 },
+  'Gemma 2 27B': { params: 27.2, layers: 46, kvHeads: 16, headDim: 128 },
+  'Gemma 3 4B': { params: 3.9, layers: 34, kvHeads: 4, headDim: 256 },
+  'Gemma 3 12B': { params: 12, layers: 48, kvHeads: 8, headDim: 256 },
+  'Gemma 3 27B': { params: 27.2, layers: 62, kvHeads: 16, headDim: 128 },
+  'Phi-4 14B': { params: 14, layers: 40, kvHeads: 10, headDim: 128 },
+  'GLM-4 9B': { params: 9, layers: 40, kvHeads: 2, headDim: 128 },
+  'GPT-OSS 20B': { params: 20.9, layers: 24, kvHeads: 8, headDim: 64 },
+  'GPT-OSS 120B': { params: 116.8, layers: 36, kvHeads: 8, headDim: 64 },
   'Mixtral 8x7B': { params: 47, layers: 32, kvHeads: 8, headDim: 128 },
   'GPT-3 175B': { params: 175, layers: 96, kvHeads: 96, headDim: 128 },
   'Claude-3 (Est.)': { params: 200, layers: 100, kvHeads: 100, headDim: 128 },
@@ -207,8 +220,8 @@ export default function CalculatorPage() {
                 <span className="text-white font-bold text-xl">◆</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">VRAM Estimator</h1>
-                <p className="text-sm text-slate-500">Calculate memory requirements for LLM deployment</p>
+                <h1 className="text-xl font-bold text-slate-900">AI Compute Planner</h1>
+                <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
               </div>
             </Link>
             <Link
