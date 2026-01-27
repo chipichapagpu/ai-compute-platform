@@ -16,26 +16,12 @@ export default function Home() {
                 <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
               </div>
             </Link>
-            <div className="flex items-center gap-3">
-              <Link
-                href="/hardware"
-                className="px-6 py-2.5 bg-white border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-all"
-              >
-                Hardware
-              </Link>
-              <Link
-                href="/infrastructure"
-                className="px-6 py-2.5 bg-white border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-all"
-              >
-                Infrastructure
-              </Link>
-              <Link
-                href="/calculator"
-                className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all"
-              >
-                Planner
-              </Link>
-            </div>
+            <Link
+              href="/calculator"
+              className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all"
+            >
+              Planner
+            </Link>
           </div>
         </div>
       </header>
@@ -44,24 +30,60 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-6 py-16">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-slate-900 mb-6">
-            AI Compute Planner
+            Compute economics for AI infrastructure
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Estimate VRAM requirements, compare AI accelerators, and plan your infrastructure
-            for LLM deployment. High-performance silicon insights for engineers and product leads.
+            Plan and reason about AI compute using first-principles math and real hardware constraints.
+            From model parameters to GPUs, memory, and cost.
           </p>
         </div>
 
+        {/* Short positioning */}
+        <div className="bg-white p-8 rounded-2xl border border-slate-200 mb-12 max-w-3xl mx-auto">
+          <p className="text-slate-700 leading-relaxed mb-4">
+            AI Compute Planner is a technical planning tool for people who design, deploy, and scale LLM systems.
+          </p>
+          <p className="text-slate-700 leading-relaxed mb-4">
+            It focuses on how models actually consume memory and bandwidth — and how those properties translate into infrastructure decisions.
+          </p>
+          <p className="text-slate-500 text-sm">
+            No benchmarks for marketing. No abstract "performance scores". Only assumptions you can inspect.
+          </p>
+        </div>
+
+        {/* What you can do */}
+        <div className="max-w-3xl mx-auto mb-12">
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">What you can do here</h3>
+          <ul className="space-y-2 text-slate-600">
+            <li className="flex items-start gap-2">
+              <span className="text-red-500 mt-1">•</span>
+              <span>Estimate VRAM requirements for inference and training</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-red-500 mt-1">•</span>
+              <span>Compare modern AI accelerators beyond peak FLOPs</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-red-500 mt-1">•</span>
+              <span>Understand trade-offs between context length, batch size, precision, and parallelism</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-red-500 mt-1">•</span>
+              <span>Connect model-level choices to cost and scalability</span>
+            </li>
+          </ul>
+        </div>
+
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           <Link href="/hardware" className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all hover:border-red-300 group">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Compare Hardware</h3>
-            <p className="text-slate-600">Benchmarking 26+ AI accelerators including H100, B200, and TPUs</p>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">Hardware Comparison</h3>
+            <p className="text-slate-600">Side-by-side analysis of modern AI accelerators with an emphasis on memory, bandwidth, and interconnects.</p>
           </Link>
 
           <Link href="/calculator" className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all hover:border-blue-300 group">
@@ -73,7 +95,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">VRAM Estimator</h3>
-            <p className="text-slate-600">Calculate precise memory requirements for LLM inference and training</p>
+            <p className="text-slate-600">Transparent memory sizing for LLMs: weights, KV-cache, precision, and safety margins.</p>
           </Link>
 
           <Link href="/infrastructure" className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all hover:border-purple-300 group">
@@ -84,9 +106,20 @@ export default function Home() {
                 <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Infra Directory</h3>
-            <p className="text-slate-600">Analyze global datacenter availability and cluster scalability</p>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">Infrastructure Directory</h3>
+            <p className="text-slate-600">Cluster-level view of compute availability and scaling constraints.</p>
           </Link>
+        </div>
+
+        {/* Philosophy */}
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <p className="text-slate-600 mb-2">
+            All calculations are grounded in public hardware specs and real deployment patterns.
+            Where assumptions are made, they are explicit.
+          </p>
+          <p className="text-slate-500 text-sm">
+            The goal is not to recommend hardware — but to make the constraints visible.
+          </p>
         </div>
 
         {/* Call to Action */}
@@ -121,7 +154,7 @@ export default function Home() {
             <span className="text-red-500">◆</span> AI Compute Planner
           </div>
           <div className="text-slate-500 mb-4">
-            Infrastructure-grade tools for the next era of compute
+            Better infrastructure decisions start with better mental models.
           </div>
           <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
             <span>R&D vibecoded project</span>
