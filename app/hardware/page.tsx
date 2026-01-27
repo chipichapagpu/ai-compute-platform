@@ -161,6 +161,18 @@ export default function HardwareComparison() {
                     ))}
                   </tr>
                   <tr className="border-b border-slate-100">
+                    <td className="py-3 px-4 font-semibold text-slate-700">Primary Workload</td>
+                    {comparisonData.map((chip) => (
+                      <td key={chip.hardware} className="py-3 px-4 text-slate-700">{chip.primaryWorkload}</td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-slate-100">
+                    <td className="py-3 px-4 font-semibold text-slate-700">Secondary Workload</td>
+                    {comparisonData.map((chip) => (
+                      <td key={chip.hardware} className="py-3 px-4 text-slate-700">{chip.secondaryWorkload}</td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-slate-100">
                     <td className="py-3 px-4 font-semibold text-slate-700">Release Date</td>
                     {comparisonData.map((chip) => (
                       <td key={chip.hardware} className="py-3 px-4 text-slate-700">{chip.releaseDate}</td>
@@ -276,6 +288,12 @@ export default function HardwareComparison() {
                     Type
                   </th>
                   <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
+                    Primary Workload
+                  </th>
+                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
+                    Secondary Workload
+                  </th>
+                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
                     Release Date
                   </th>
                   <th className="text-right py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
@@ -313,6 +331,8 @@ export default function HardwareComparison() {
                     <td className="py-3 px-4 font-semibold text-slate-900">{hw.hardware}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.manufacturer}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.type}</td>
+                    <td className="py-3 px-4 text-slate-700">{hw.primaryWorkload}</td>
+                    <td className="py-3 px-4 text-slate-700">{hw.secondaryWorkload}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.releaseDate}</td>
                     <td className={`py-3 px-4 text-right ${isTopValue('petaflops16', hw.petaflops16) ? 'bg-red-50 font-semibold text-red-600' : 'text-slate-700'}`}>
                       {hw.petaflops16}
