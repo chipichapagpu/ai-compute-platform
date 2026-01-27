@@ -26,56 +26,19 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-6 py-16">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-slate-900 mb-6">
-            Compute economics for AI infrastructure
+      <main className="max-w-7xl mx-auto px-6">
+        {/* Hero */}
+        <div className="py-20 text-center">
+          <h2 className="text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            Compute economics for<br />AI infrastructure
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             Plan and reason about AI compute using first-principles math and real hardware constraints.
-            From model parameters to GPUs, memory, and cost.
           </p>
         </div>
 
-        {/* Short positioning */}
-        <div className="bg-white p-8 rounded-2xl border border-slate-200 mb-12 max-w-3xl mx-auto">
-          <p className="text-slate-700 leading-relaxed mb-4">
-            AI Compute Planner is a technical planning tool for people who design, deploy, and scale LLM systems.
-          </p>
-          <p className="text-slate-700 leading-relaxed mb-4">
-            It focuses on how models actually consume memory and bandwidth — and how those properties translate into infrastructure decisions.
-          </p>
-          <p className="text-slate-500 text-sm">
-            No benchmarks for marketing. No abstract "performance scores". Only assumptions you can inspect.
-          </p>
-        </div>
-
-        {/* What you can do */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">What you can do here</h3>
-          <ul className="space-y-2 text-slate-600">
-            <li className="flex items-start gap-2">
-              <span className="text-red-500 mt-1">•</span>
-              <span>Estimate VRAM requirements for inference and training</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-red-500 mt-1">•</span>
-              <span>Compare modern AI accelerators beyond peak FLOPs</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-red-500 mt-1">•</span>
-              <span>Understand trade-offs between context length, batch size, precision, and parallelism</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-red-500 mt-1">•</span>
-              <span>Connect model-level choices to cost and scalability</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        {/* Tools Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
           <Link href="/hardware" className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all hover:border-red-300 group">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -83,7 +46,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Hardware Comparison</h3>
-            <p className="text-slate-600">Side-by-side analysis of modern AI accelerators with an emphasis on memory, bandwidth, and interconnects.</p>
+            <p className="text-slate-500 text-sm">Side-by-side analysis of modern AI accelerators. Memory, bandwidth, interconnects.</p>
           </Link>
 
           <Link href="/calculator" className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all hover:border-blue-300 group">
@@ -95,7 +58,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">VRAM Estimator</h3>
-            <p className="text-slate-600">Transparent memory sizing for LLMs: weights, KV-cache, precision, and safety margins.</p>
+            <p className="text-slate-500 text-sm">Transparent memory sizing for LLMs. Weights, KV-cache, precision, safety margins.</p>
           </Link>
 
           <Link href="/infrastructure" className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all hover:border-purple-300 group">
@@ -107,23 +70,48 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Infrastructure Directory</h3>
-            <p className="text-slate-600">Cluster-level view of compute availability and scaling constraints.</p>
+            <p className="text-slate-500 text-sm">Cluster-level view of compute availability and scaling constraints.</p>
           </Link>
         </div>
 
-        {/* Philosophy */}
-        <div className="max-w-3xl mx-auto mb-12 text-center">
-          <p className="text-slate-600 mb-2">
-            All calculations are grounded in public hardware specs and real deployment patterns.
-            Where assumptions are made, they are explicit.
-          </p>
-          <p className="text-slate-500 text-sm">
-            The goal is not to recommend hardware — but to make the constraints visible.
-          </p>
+        {/* About Section */}
+        <div className="grid md:grid-cols-2 gap-12 mb-20">
+          <div>
+            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">What you can do</h3>
+            <ul className="space-y-3 text-slate-600">
+              <li className="flex items-start gap-3">
+                <span className="text-red-500 mt-0.5">•</span>
+                Estimate VRAM requirements for inference and training
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-500 mt-0.5">•</span>
+                Compare modern AI accelerators beyond peak FLOPs
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-500 mt-0.5">•</span>
+                Understand trade-offs: context length, batch size, precision, parallelism
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-500 mt-0.5">•</span>
+                Connect model-level choices to cost and scalability
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Philosophy</h3>
+            <p className="text-slate-600 mb-4">
+              A technical planning tool for people who design, deploy, and scale LLM systems.
+              Focused on how models actually consume memory and bandwidth.
+            </p>
+            <p className="text-slate-500 text-sm">
+              No benchmarks for marketing. No abstract performance scores.
+              All assumptions are explicit and inspectable.
+            </p>
+          </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center space-y-4">
+        {/* CTA */}
+        <div className="text-center pb-20">
           <div className="flex items-center justify-center gap-4">
             <Link
               href="/hardware"
@@ -148,20 +136,18 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white mt-20">
+      <footer className="border-t border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <div className="text-slate-900 font-semibold mb-2">
             <span className="text-red-500">◆</span> AI Compute Planner
           </div>
-          <div className="text-slate-500 mb-4">
+          <div className="text-slate-500 text-sm mb-4">
             Better infrastructure decisions start with better mental models.
           </div>
           <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
             <span>R&D vibecoded project</span>
             <span>•</span>
-            <span>Latest Update: Jan 22, 2026</span>
-            <span>•</span>
-            <span>Built with Next.js</span>
+            <span>Jan 2026</span>
           </div>
         </div>
       </footer>
