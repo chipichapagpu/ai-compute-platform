@@ -12,16 +12,15 @@ export default function Home() {
                 <span className="text-white font-bold text-xl">◆</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">AI Compute Planner</h1>
-                <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
+                <h1 className="text-xl font-bold text-slate-900">Computenomics</h1>
+                <p className="text-sm text-slate-500">Compute economics for AI infrastructure</p>
               </div>
             </Link>
-            <Link
-              href="/calculator"
-              className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all"
-            >
-              Planner
-            </Link>
+            <nav className="flex items-center gap-6 text-sm text-slate-600">
+              <Link href="/hardware" className="hover:text-slate-900">GPUs</Link>
+              <Link href="/calculator" className="hover:text-slate-900">Estimate VRAM</Link>
+              <Link href="/infrastructure" className="hover:text-slate-900">Compute Insights</Link>
+            </nav>
           </div>
         </div>
       </header>
@@ -32,9 +31,19 @@ export default function Home() {
           <h2 className="text-5xl font-bold text-slate-900 mb-6 leading-tight">
             Compute economics for<br />AI infrastructure
           </h2>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto mb-8">
             Plan and reason about AI compute using first-principles math and real hardware constraints.
           </p>
+          <Link
+            href="/calculator"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:scale-105 transition-all"
+          >
+            Start Compute Planning
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </Link>
+          <p className="text-sm text-slate-500 mt-4">From model size to hardware limits — in one flow</p>
         </div>
 
         {/* Tools Grid */}
@@ -45,7 +54,7 @@ export default function Home() {
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Hardware Comparison</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">GPU Comparison</h3>
             <p className="text-slate-500 text-sm">Side-by-side analysis of modern AI accelerators. Memory, bandwidth, interconnects.</p>
           </Link>
 
@@ -69,8 +78,8 @@ export default function Home() {
                 <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Infrastructure Directory</h3>
-            <p className="text-slate-500 text-sm">Cluster-level view of compute availability and scaling constraints.</p>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">AI Compute Industry Insights</h3>
+            <p className="text-slate-500 text-sm">Analytics across data centers, hardware supply, and LLM workloads.</p>
           </Link>
         </div>
 
@@ -110,44 +119,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center pb-20">
-          <div className="flex items-center justify-center gap-4">
-            <Link
-              href="/hardware"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-red-500 text-red-600 font-bold text-lg rounded-xl hover:bg-red-50 hover:scale-105 transition-all"
-            >
-              Explore Specs
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </Link>
-            <Link
-              href="/calculator"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:scale-105 transition-all"
-            >
-              Start Planning
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </main>
+              </main>
 
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <div className="text-slate-900 font-semibold mb-2">
-            <span className="text-red-500">◆</span> AI Compute Planner
+            <span className="text-red-500">◆</span> Computenomics
           </div>
-          <div className="text-slate-500 text-sm mb-4">
-            Better infrastructure decisions start with better mental models.
-          </div>
-          <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
-            <span>R&D vibecoded project</span>
-            <span>•</span>
-            <span>Jan 2026</span>
+          <div className="text-slate-500 text-sm max-w-md mx-auto">
+            Computenomics is an R&D project exploring how AI models consume compute, memory, and capital.
           </div>
         </div>
       </footer>

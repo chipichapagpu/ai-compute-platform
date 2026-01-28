@@ -28,16 +28,15 @@ export default function Infrastructure() {
                 <span className="text-white font-bold text-xl">◆</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">AI Compute Planner</h1>
-                <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
+                <h1 className="text-xl font-bold text-slate-900">Computenomics</h1>
+                <p className="text-sm text-slate-500">Compute economics for AI infrastructure</p>
               </div>
             </Link>
-            <Link
-              href="/"
-              className="px-6 py-2.5 bg-white border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-all"
-            >
-              ← Back to Home
-            </Link>
+            <nav className="flex items-center gap-6 text-sm text-slate-600">
+              <Link href="/hardware" className="hover:text-slate-900">GPUs</Link>
+              <Link href="/calculator" className="hover:text-slate-900">Estimate VRAM</Link>
+              <Link href="/infrastructure" className="hover:text-slate-900">Compute Insights</Link>
+            </nav>
           </div>
         </div>
       </header>

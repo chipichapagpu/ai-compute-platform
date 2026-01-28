@@ -2,17 +2,23 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { HARDWARE_DATA, MANUFACTURERS, sortHardware, filterByManufacturers, getTopValues, type SortField, type Hardware } from '@/lib/hardware'
+import { HARDWARE_DATA, MANUFACTURERS, sortHardware, filterByManufacturers, getTopValues, type SortField } from '@/lib/hardware'
 
 export default function HardwareComparison() {
   const [selectedManufacturers, setSelectedManufacturers] = useState<string[]>(MANUFACTURERS)
   const [sortBy, setSortBy] = useState<SortField>('petaflops8')
+  const [sortAsc, setSortAsc] = useState(false)
   const [compareChips, setCompareChips] = useState<string[]>([])
+
+  const handleSort = (field: SortField) => {
+    if (sortBy === field) setSortAsc(!sortAsc)
+    else { setSortBy(field); setSortAsc(false) }
+  }
 
   const filteredAndSorted = useMemo(() => {
     const filtered = filterByManufacturers(HARDWARE_DATA, selectedManufacturers)
-    return sortHardware(filtered, sortBy)
-  }, [selectedManufacturers, sortBy])
+    return sortHardware(filtered, sortBy, sortAsc)
+  }, [selectedManufacturers, sortBy, sortAsc])
 
   const comparisonData = useMemo(() => {
     return HARDWARE_DATA.filter(h => compareChips.includes(h.hardware))
@@ -83,16 +89,15 @@ export default function HardwareComparison() {
                 <span className="text-white font-bold text-xl">◆</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">AI Compute Planner</h1>
-                <p className="text-sm text-slate-500">Infrastructure Planning Tools</p>
+                <h1 className="text-xl font-bold text-slate-900">Computenomics</h1>
+                <p className="text-sm text-slate-500">Compute economics for AI infrastructure</p>
               </div>
             </Link>
-            <Link
-              href="/"
-              className="px-6 py-2.5 bg-white border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50 transition-all"
-            >
-              ← Back to Home
-            </Link>
+            <nav className="flex items-center gap-6 text-sm text-slate-600">
+              <Link href="/hardware" className="hover:text-slate-900">GPUs</Link>
+              <Link href="/calculator" className="hover:text-slate-900">Estimate VRAM</Link>
+              <Link href="/infrastructure" className="hover:text-slate-900">Compute Insights</Link>
+            </nav>
           </div>
         </div>
       </header>
@@ -244,22 +249,7 @@ export default function HardwareComparison() {
               </div>
             </div>
 
-            <div className="lg:w-64">
-              <label className="block text-sm font-semibold text-slate-700 mb-3">
-                Sort By
-              </label>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortField)}
-                className="w-full px-4 py-2.5 border border-slate-300 rounded-lg bg-white text-slate-900 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none"
-              >
-                <option value="petaflops8">FP-8 Performance</option>
-                <option value="petaflops16">FP-16 Performance</option>
-                <option value="memory">Memory</option>
-                <option value="releaseDate">Release Date</option>
-              </select>
-            </div>
-          </div>
+                      </div>
         </div>
 
         {/* Full Hardware Index */}
@@ -275,59 +265,30 @@ export default function HardwareComparison() {
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b-2 border-slate-200">
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Compare
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Hardware
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Manufacturer
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Type
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Primary Workload
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Secondary Workload
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Release Date
-                  </th>
-                  <th className="text-right py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    FP-16 (PFLOPS)
-                  </th>
-                  <th className="text-right py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    FP-8 (PFLOPS)
-                  </th>
-                  <th className="text-right py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Memory (GB)
-                  </th>
-                  <th className="text-right py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Bandwidth (TB/s)
-                  </th>
-                  <th className="text-right py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Power (W)
-                  </th>
-                  <th className="text-left py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">
-                    Foundry
-                  </th>
+                  {([
+                    ['hardware', 'Hardware', 'left'],
+                    ['manufacturer', 'Manufacturer', 'left'],
+                    ['type', 'Type', 'left'],
+                    ['primaryWorkload', 'Primary Workload', 'left'],
+                    ['secondaryWorkload', 'Secondary Workload', 'left'],
+                    ['releaseDate', 'Release Date', 'left'],
+                    ['petaflops16', 'FP-16 (PFLOPS)', 'right'],
+                    ['petaflops8', 'FP-8 (PFLOPS)', 'right'],
+                    ['memory', 'Memory (GB)', 'right'],
+                    ['bandwidth', 'Bandwidth (TB/s)', 'right'],
+                    ['power', 'Power (W)', 'right'],
+                    ['foundry', 'Foundry', 'left'],
+                  ] as [SortField, string, string][]).map(([field, label, align]) => (
+                    <th key={field} onClick={() => handleSort(field)} className={`text-${align} py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider cursor-pointer hover:bg-slate-100 select-none`}>
+                      {label} {sortBy === field && (sortAsc ? '↑' : '↓')}
+                    </th>
+                  ))}
+                  <th className="py-3 px-4 text-xs font-semibold text-slate-700 bg-slate-50 uppercase tracking-wider">Compare</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredAndSorted.map((hw, idx) => (
                   <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                    <td className="py-3 px-4">
-                      <input
-                        type="checkbox"
-                        checked={compareChips.includes(hw.hardware)}
-                        onChange={() => toggleCompareChip(hw.hardware)}
-                        disabled={!compareChips.includes(hw.hardware) && compareChips.length >= 3}
-                        className="w-4 h-4 text-red-500 rounded border-slate-300 focus:ring-red-500 disabled:opacity-50"
-                      />
-                    </td>
                     <td className="py-3 px-4 font-semibold text-slate-900">{hw.hardware}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.manufacturer}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.type}</td>
@@ -348,6 +309,15 @@ export default function HardwareComparison() {
                     </td>
                     <td className="py-3 px-4 text-right text-slate-700">{hw.power}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.foundry}</td>
+                    <td className="py-3 px-4">
+                      <input
+                        type="checkbox"
+                        checked={compareChips.includes(hw.hardware)}
+                        onChange={() => toggleCompareChip(hw.hardware)}
+                        disabled={!compareChips.includes(hw.hardware) && compareChips.length >= 3}
+                        className="w-4 h-4 text-red-500 rounded border-slate-300 focus:ring-red-500 disabled:opacity-50"
+                      />
+                    </td>
                   </tr>
                 ))}
               </tbody>

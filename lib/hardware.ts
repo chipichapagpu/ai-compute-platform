@@ -285,17 +285,17 @@ export const HARDWARE_DATA: Hardware[] = [
 
 export const MANUFACTURERS = Array.from(new Set(HARDWARE_DATA.map(h => h.manufacturer))).sort();
 
-export type SortField = 'petaflops8' | 'petaflops16' | 'memory' | 'releaseDate';
+export type SortField = keyof Hardware;
 
-export function sortHardware(data: Hardware[], field: SortField): Hardware[] {
+export function sortHardware(data: Hardware[], field: SortField, asc: boolean = false): Hardware[] {
   return [...data].sort((a, b) => {
     const aVal = a[field];
     const bVal = b[field];
-
+    const dir = asc ? 1 : -1;
     if (typeof aVal === 'string' && typeof bVal === 'string') {
-      return bVal.localeCompare(aVal); // Descending for dates
+      return aVal.localeCompare(bVal) * dir;
     }
-    return (bVal as number) - (aVal as number); // Descending for numbers
+    return ((aVal as number) - (bVal as number)) * dir;
   });
 }
 
