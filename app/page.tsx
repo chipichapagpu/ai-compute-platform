@@ -1,29 +1,10 @@
 import Link from 'next/link'
+import Header from '@/components/Header'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Header */}
-      <header className="border-b border-slate-200 bg-white/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">◆</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-slate-900">Computenomics</h1>
-                <p className="text-sm text-slate-500">Compute economics for AI infrastructure</p>
-              </div>
-            </Link>
-            <nav className="flex items-center gap-6 text-sm text-slate-600">
-              <Link href="/hardware" className="hover:text-slate-900">GPUs</Link>
-              <Link href="/calculator" className="hover:text-slate-900">Estimate VRAM</Link>
-              <Link href="/infrastructure" className="hover:text-slate-900">Compute Insights</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="max-w-7xl mx-auto px-6">
         {/* Hero */}

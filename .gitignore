@@ -31,3 +31,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+skypilot-catalog/
+price_history*.csv
+h100_price*.csv
+extract_price_history.py
