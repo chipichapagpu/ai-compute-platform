@@ -219,7 +219,7 @@ export default function HardwareComparison() {
                     onClick={() => toggleManufacturer(manufacturer)}
                     className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                       selectedManufacturers.includes(manufacturer)
-                        ? 'bg-red-500 text-white shadow-sm'
+                        ? 'bg-blue-600 text-white shadow-sm'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
@@ -275,16 +275,16 @@ export default function HardwareComparison() {
                     <td className="py-3 px-4 text-slate-700">{hw.primaryWorkload}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.secondaryWorkload}</td>
                     <td className="py-3 px-4 text-slate-700">{hw.releaseDate}</td>
-                    <td className={`py-3 px-4 text-right ${isTopValue('petaflops16', hw.petaflops16) ? 'bg-red-50 font-semibold text-red-600' : 'text-slate-700'}`}>
+                    <td className={`py-3 px-4 text-right ${isTopValue('petaflops16', hw.petaflops16) ? 'bg-blue-50 font-semibold text-blue-600' : 'text-slate-700'}`}>
                       {hw.petaflops16}
                     </td>
-                    <td className={`py-3 px-4 text-right ${isTopValue('petaflops8', hw.petaflops8) ? 'bg-red-50 font-semibold text-red-600' : 'text-slate-700'}`}>
+                    <td className={`py-3 px-4 text-right ${isTopValue('petaflops8', hw.petaflops8) ? 'bg-blue-50 font-semibold text-blue-600' : 'text-slate-700'}`}>
                       {hw.petaflops8}
                     </td>
-                    <td className={`py-3 px-4 text-right ${isTopValue('memory', hw.memory) ? 'bg-red-50 font-semibold text-red-600' : 'text-slate-700'}`}>
+                    <td className={`py-3 px-4 text-right ${isTopValue('memory', hw.memory) ? 'bg-blue-50 font-semibold text-blue-600' : 'text-slate-700'}`}>
                       {hw.memory}
                     </td>
-                    <td className={`py-3 px-4 text-right ${isTopValue('bandwidth', hw.bandwidth) ? 'bg-red-50 font-semibold text-red-600' : 'text-slate-700'}`}>
+                    <td className={`py-3 px-4 text-right ${isTopValue('bandwidth', hw.bandwidth) ? 'bg-blue-50 font-semibold text-blue-600' : 'text-slate-700'}`}>
                       {hw.bandwidth}
                     </td>
                     <td className="py-3 px-4 text-right text-slate-700">{hw.power}</td>
@@ -295,7 +295,7 @@ export default function HardwareComparison() {
                         checked={compareChips.includes(hw.hardware)}
                         onChange={() => toggleCompareChip(hw.hardware)}
                         disabled={!compareChips.includes(hw.hardware) && compareChips.length >= 3}
-                        className="w-4 h-4 text-red-500 rounded border-slate-300 focus:ring-red-500 disabled:opacity-50"
+                        className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 disabled:opacity-50"
                       />
                     </td>
                   </tr>
